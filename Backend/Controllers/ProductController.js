@@ -41,9 +41,8 @@ export const addProduct = async (req, res) => {
 
 export const allProducts = async (req, res) => {
   try {
-    const { page, limit = 2, name, sort = "date" } = req.body;
+    const { page, limit = 3, name, sort = "date" } = req.body;
     const { filter } = req.body.filterByDate;
-    console.log(name);
 
     const query = {};
     if (name) {
@@ -63,6 +62,7 @@ export const allProducts = async (req, res) => {
       .limit(limitValue)
       .lean();
 
+    // console.log(products);
     // const products = await ProductModel.find({});
 
     if (products?.length) {
