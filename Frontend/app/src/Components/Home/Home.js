@@ -43,6 +43,19 @@ const Home = () => {
     }
   };
 
+  const getSearchProducts = async (productId) => {
+    try {
+      const response = await api.post("/get-search-products", { productId });
+
+      if (response.data.success) {
+        setAllProducts(response.data.products);
+        setIsSearch(false);
+      }
+    } catch (error) {
+      console.log(error.response.data.message);
+    }
+  };
+
   useEffect(() => {
     const getYourProducts = async () => {
       try {
@@ -82,7 +95,16 @@ const Home = () => {
             <div id="search-results" className={isSearch && "searchByName"}>
               {allProducts &&
                 allProducts?.map((prod) => (
-                  <>{isSearch && <p key={prod._id}>{prod.name}</p>}</>
+                  <>
+                    {isSearch && (
+                      <p
+                        key={prod._id}
+                        onClick={() => getSearchProducts(prod._id)}
+                      >
+                        {prod.name}
+                      </p>
+                    )}
+                  </>
                 ))}
             </div>
           </div>

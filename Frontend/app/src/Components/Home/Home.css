@@ -35,6 +35,19 @@
   /* border: 1px solid black; */
 }
 
+#home-screen > #home > #filter-search > #search-word > #search-results > p {
+  cursor: pointer;
+}
+
+#home-screen
+  > #home
+  > #filter-search
+  > #search-word
+  > #search-results
+  > p:hover {
+  background-color: rgb(230, 230, 230);
+}
+
 #home-screen > #home > #filter-search > #search-word > #search > input {
   height: 30px;
   width: 200px;

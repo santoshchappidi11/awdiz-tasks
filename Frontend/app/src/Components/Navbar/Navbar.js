@@ -18,6 +18,7 @@ const Navbar = () => {
             <h4>Mens</h4>
             <h4>Womens</h4>
             <h4>Kids</h4>
+            <h4 onClick={() => navigateTo("/browse-image")}>Browse Image</h4>
           </>
         )}
 

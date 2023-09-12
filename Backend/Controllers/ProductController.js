@@ -73,3 +73,27 @@ export const allProducts = async (req, res) => {
     return res.status(500).json({ success: false, error: error });
   }
 };
+
+export const getSearchProducts = async (req, res) => {
+  try {
+    const { productId } = req.body;
+
+    if (!productId)
+      return res
+        .status(404)
+        .json({ success: false, message: "Product Id is required!" });
+
+    const products = await ProductModel.find({ _id: productId });
+    // console.log(products);
+
+    if (products?.length) {
+      return res.status(200).json({ success: true, products });
+    }
+
+    return res
+      .status(404)
+      .json({ success: false, message: "No products found!" });
+  } catch (error) {
+    return res.status(500).json({ success: false, error: error.message });
+  }
+};

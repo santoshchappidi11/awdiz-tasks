@@ -5,6 +5,7 @@ import Home from "./Components/Home/Home";
 import Register from "./Components/Register/Register";
 import Login from "./Components/Login/Login";
 import AddProduct from "./Components/AddProduct/AddProduct";
+import BrowseImage from "./Components/Others/BrowseImage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/add-product" element={<AddProduct />} />
+        <Route exact path="/browse-image" element={<BrowseImage />} />
         {/* <Route exact path="/profile" element={<Profile />} /> */}
         {/* <Route exact path="/your-products" element={<YourProduct />} /> */}
         {/* <Route

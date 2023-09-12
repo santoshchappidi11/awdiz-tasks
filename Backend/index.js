@@ -8,7 +8,11 @@ import {
   Register,
   getCurrentUser,
 } from "./Controllers/UserController.js";
-import { addProduct, allProducts } from "./Controllers/ProductController.js";
+import {
+  addProduct,
+  allProducts,
+  getSearchProducts,
+} from "./Controllers/ProductController.js";
 import { checkSeller } from "./Middlewares/AllMiddlewares.js";
 
 const app = express();
@@ -24,6 +28,7 @@ app.post("/get-current-user", getCurrentUser);
 
 app.post("/add-product", checkSeller, addProduct);
 app.post("/all-products", allProducts);
+app.post("/get-search-products", getSearchProducts);
 
 mongoose
   .connect(process.env.MONGO_URL)
